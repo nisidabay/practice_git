@@ -1,0 +1,7 @@
+# r_git_practice/.gitignore — ignore the temp playgrounds created by exercises
+tmp/
+temp/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
