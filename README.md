@@ -94,3 +94,6 @@ day and it won't touch your real repos.
 ## Reading
 
 `REFERENCES.md` — books and resources for going deeper into Git internals.
+
+`CONVENTIONAL_COMMITS.md` — a lightweight convention for commit messages
+that makes history readable and enables automated versioning.
