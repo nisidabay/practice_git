@@ -43,5 +43,9 @@ echo ""
 echo "=== History after merge revert: ==="
 git log --oneline --graph
 
+echo ""
+echo "=== git revert <merge-commit> requires -m (parent number) ==="
+echo "=== -m 1 = keep main, -m 2 = keep the merged branch ==="
+
 cd /tmp
 rm -rf "$PLAYGROUND"

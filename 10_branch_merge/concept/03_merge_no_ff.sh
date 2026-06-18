@@ -13,12 +13,12 @@ git commit -m "Base" > /dev/null
 # ============================================================
 # 1. BOTH branches get new commits (not a fast-forward case)
 # ============================================================
-git checkout -b feature 2>/dev/null
+git switch -c feature 2>/dev/null
 echo "Feature work" > feature.txt
 git add feature.txt
 git commit -m "Feature work" > /dev/null
 
-git checkout main 2>/dev/null
+git switch main 2>/dev/null
 echo "Main work" > main.txt
 git add main.txt
 git commit -m "Main work" > /dev/null

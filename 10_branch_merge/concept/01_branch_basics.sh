@@ -16,10 +16,10 @@ git commit -m "C1" > /dev/null
 echo "=== Current branches: ==="
 git branch
 
-git checkout -b feature 2>/dev/null
+git switch -c feature 2>/dev/null
 
 echo ""
-echo "=== After git checkout -b feature: ==="
+echo "=== After git switch -c feature: ==="
 git branch
 echo "(star = current branch)"
 

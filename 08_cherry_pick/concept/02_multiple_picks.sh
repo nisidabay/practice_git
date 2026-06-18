@@ -18,7 +18,7 @@ echo "A" > a.txt; git add a.txt; git commit -m "Add A" > /dev/null
 echo "B" > b.txt; git add b.txt; git commit -m "Add B" > /dev/null
 echo "C" > c.txt; git add c.txt; git commit -m "Add C" > /dev/null
 
-C_HASH=$(git rev-parse HEAD~0)  # newest
+C_HASH=$(git rev-parse HEAD)  # newest
 A_HASH=$(git rev-parse HEAD~2)  # oldest
 
 # ============================================================

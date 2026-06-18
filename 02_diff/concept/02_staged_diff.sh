@@ -13,7 +13,7 @@ git commit -m "Initial commit" > /dev/null
 # ============================================================
 # 1. Modify, then stage — this is what git diff --staged shows
 # ============================================================
-echo "Line 1" > file.txt
+echo "Line 1" >> file.txt
 echo "Line 2" >> file.txt
 git add file.txt
 

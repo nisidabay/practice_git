@@ -52,6 +52,5 @@ cat feature.txt
 echo ""
 echo "=== squash = combine many WIP commits into one clean one ==="
 echo "=== The first commit stays 'pick', rest become 'squash' ==="
-
 cd /tmp
 rm -rf "$PLAYGROUND"

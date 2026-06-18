@@ -15,7 +15,6 @@ git commit -m "First commit" > /dev/null
 # ============================================================
 
 # Modify the file without staging
-echo "Line 1" > file.txt
 echo "Line 2 — added now" >> file.txt
 echo "Line 3 — also new" >> file.txt
 

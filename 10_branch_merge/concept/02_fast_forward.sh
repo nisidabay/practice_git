@@ -13,7 +13,7 @@ git commit -m "Base" > /dev/null
 # ============================================================
 # 1. Create feature branch, add commits
 # ============================================================
-git checkout -b feature 2>/dev/null
+git switch -c feature 2>/dev/null
 echo "Feature A" >> base.txt
 git add base.txt
 git commit -m "Feature A" > /dev/null
@@ -31,7 +31,7 @@ echo ""
 #    main has NO new commits since the branch split,
 #    so Git just moves the main pointer forward.
 # ============================================================
-git checkout main 2>/dev/null
+git switch main 2>/dev/null
 git merge feature
 
 echo ""

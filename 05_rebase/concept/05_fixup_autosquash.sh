@@ -56,6 +56,5 @@ echo "=== 4. git rebase -i --autosquash HEAD~N"
 echo "==="
 echo "=== --fixup is the signal. --autosquash does the work. ==="
 echo "=== Also: git commit --squash for when you want to edit the message ==="
-
 cd /tmp
 rm -rf "$PLAYGROUND"

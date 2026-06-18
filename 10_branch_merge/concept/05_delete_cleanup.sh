@@ -13,12 +13,12 @@ git commit -m "Base" > /dev/null
 # ============================================================
 # 1. Create and merge a branch (safe delete with -d)
 # ============================================================
-git checkout -b feature 2>/dev/null
+git switch -c feature 2>/dev/null
 echo "Feature" > feature.txt
 git add feature.txt
 git commit -m "Feature" > /dev/null
 
-git checkout main 2>/dev/null
+git switch main 2>/dev/null
 git merge feature 2>/dev/null
 
 echo "=== git branch -d feature (after merge — works): ==="
@@ -28,12 +28,12 @@ echo ""
 # ============================================================
 # 2. Create an unmerged branch (need -D)
 # ============================================================
-git checkout -b unmerged 2>/dev/null
+git switch -c unmerged 2>/dev/null
 echo "Unmerged" > unmerged.txt
 git add unmerged.txt
 git commit -m "Unmerged work" > /dev/null
 
-git checkout main 2>/dev/null
+git switch main 2>/dev/null
 
 echo "=== git branch -d unmerged (not merged — fails): ==="
 git branch -d unmerged 2>/dev/null && echo "Deleted!" || echo "Failed (expected)"

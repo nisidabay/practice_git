@@ -14,13 +14,13 @@ git commit -m "Base" > /dev/null
 # ============================================================
 # 1. Both branches modify the SAME line
 # ============================================================
-git checkout -b branch 2>/dev/null
+git switch -c branch 2>/dev/null
 echo "Line 1 — from branch" > conflict.txt
 echo "Line 2" >> conflict.txt
 git add conflict.txt
 git commit -m "Branch changes" > /dev/null
 
-git checkout main 2>/dev/null
+git switch main 2>/dev/null
 echo "Line 1 — from main" > conflict.txt
 echo "Line 2" >> conflict.txt
 git add conflict.txt
