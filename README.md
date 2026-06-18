@@ -14,15 +14,18 @@ No GitHub, no remotes, no collaboration — just the tool itself.
 
 ### Path A: The Quick Tour (~20 min)
 
-Pick any group whose topic interests you. Every concept script is self-contained —
-it creates its own temp playground, runs the commands, shows the output, and cleans up.
-Zero risk to your real repos.
+Pick any group whose topic interests you. Each group has a `concept/` folder
+with numbered scripts. These scripts are **conceptual guides** — they show you
+the commands and the expected output, but you should **replicate the steps
+manually** in your own throwaway repo:
 
 ```bash
-cd 02_diff/concept
-cat README.md              # see the map
-bash 01_unstaged_diff.sh   # first concept
-bash 02_staged_diff.sh     # next one
+cd ~/tmp && git init
+# Now follow 01_unstaged_diff.sh step by step
+echo "Line 1" > file.txt
+git add file.txt
+git commit -m "First commit"
+# ... etc
 ```
 
 ### Path B: Systematic (~2-3 weeks)
@@ -30,7 +33,7 @@ bash 02_staged_diff.sh     # next one
 Work through the numbered groups in order. Each group has:
 
 - **concept/README.md** — quick-start table + learning path
-- **concept/*.sh** — one concept per file, code-first, self-contained
+- **concept/\*.sh** — one concept per file: read the code, understand the flow, replicate manually
 - **exercises.sh** — solved practice problems at the group level
 - **project/** — a real CLI tool using those concepts
 - **"Now Build Your Own"** prompt at the bottom of every README
@@ -40,7 +43,7 @@ Start here:
 ```bash
 cd 01_foundation/concept
 cat README.md
-bash 01_init_add_commit.sh
+# Open 01_init_add_commit.sh in your editor and follow along
 ```
 
 Then keep going:
@@ -87,9 +90,16 @@ Then keep going:
 
 ## Safety
 
-Every script uses `mktemp -d` — it creates a throwaway playground, runs the
-commands, and deletes everything. You can run `git reset --hard` in here all
-day and it won't touch your real repos.
+The `concept/` and `exercises.sh` scripts are **conceptual guides** — read them
+to understand the workflow, then **replicate the steps manually** in your own
+throwaway repo:
+
+```bash
+cd ~/tmp && git init
+# ... follow the script step by step
+```
+
+Everything runs locally. No remotes, no risk to your real repos.
 
 ## Reading
 
