@@ -21,7 +21,7 @@ echo "---"
 # === Exercise 2: pickaxe (-S) ===
 echo "void setup() {" > main.c; echo "}" >> main.c
 git add main.c; git commit -m "Add setup" > /dev/null
-echo "void setup() {" > main.c; echo "    init();" >> main.c; echo "}" >> main.c
+sed -i '/^{$/a\    init();' main.c
 git add main.c; git commit -m "Add init call" > /dev/null
 
 echo "Commit where 'init' first appeared:"

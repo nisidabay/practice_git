@@ -53,11 +53,11 @@ echo "---"
 echo "conflict base" > conflict.txt; git add conflict.txt; git commit -m "Base conflict" > /dev/null
 
 git checkout -b conflict-branch 2>/dev/null
-echo "conflict version" > conflict.txt; git add conflict.txt; git commit -m "Change text" > /dev/null
+sed -i 's/conflict base/conflict version/' conflict.txt; git add conflict.txt; git commit -m "Change text" > /dev/null
 CH=$(git rev-parse HEAD)
 
 git checkout main 2>/dev/null
-echo "different base" > conflict.txt; git add conflict.txt; git commit -m "Different text" > /dev/null
+sed -i 's/conflict base/different base/' conflict.txt; git add conflict.txt; git commit -m "Different text" > /dev/null
 
 echo "Cherry-picking (will conflict):"
 git cherry-pick "$CH" 2>/dev/null || echo "(conflict paused)"

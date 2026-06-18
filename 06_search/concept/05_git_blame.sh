@@ -18,8 +18,7 @@ echo "line 2 — added later" >> shared.py
 git add shared.py
 git commit -m "Add line 2" > /dev/null
 
-echo "line 3 — changed line 1" > shared.py
-echo "line 2 — added later" >> shared.py
+sed -i 's/line 1 — original/line 3 — changed line 1/' shared.py
 git add shared.py
 git commit -m "Rewrite line 1" > /dev/null
 

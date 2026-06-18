@@ -14,13 +14,15 @@ echo "x = 100" > config.py
 git add config.py
 git commit -m "Add config" > /dev/null
 
-echo "x = 200" > config.py
+# Edit with your editor — change x and add y
+sed -i 's/x = 100/x = 200/' config.py
 echo "y = 300" >> config.py
 git add config.py
 git commit -m "Update config" > /dev/null
 
-echo "x = 400" > config.py
-echo "z = 500" >> config.py
+# Edit with your editor — change x and replace y with z
+sed -i 's/x = 200/x = 400/' config.py
+sed -i 's/y = 300/z = 500/' config.py
 git add config.py
 git commit -m "Final config" > /dev/null
 

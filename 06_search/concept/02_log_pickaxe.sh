@@ -16,14 +16,12 @@ echo "}" >> tax.py
 git add tax.py
 git commit -m "Add tax calculation" > /dev/null
 
-echo "function calculate_tax(amount) {" > tax.py
-echo "    return amount * 0.10" >> tax.py
-echo "}" >> tax.py
+sed -i 's/0\.08/0.10/' tax.py
 git add tax.py
 git commit -m "Update tax rate to 10%" > /dev/null
 
-echo "function process_payment(amount) {" > tax.py
-echo "    # tax calculation removed" >> tax.py
+sed -i 's/function calculate_tax.*/function process_payment(amount) {/' tax.py
+sed -i 's/    return amount \* 0\.10/    # tax calculation removed/' tax.py
 echo "    return amount" >> tax.py
 echo "}" >> tax.py
 git add tax.py

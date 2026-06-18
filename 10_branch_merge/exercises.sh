@@ -37,10 +37,10 @@ echo "---"
 echo "initial" > conflict.txt; git add conflict.txt; git commit -m "conflict base" > /dev/null
 
 git switch -c left 2>/dev/null
-echo "left version" > conflict.txt; git add conflict.txt; git commit -m "Left" > /dev/null
+sed -i 's/initial/left version/' conflict.txt; git add conflict.txt; git commit -m "Left" > /dev/null
 
 git switch main 2>/dev/null
-echo "right version" > conflict.txt; git add conflict.txt; git commit -m "Right" > /dev/null
+sed -i 's/initial/right version/' conflict.txt; git add conflict.txt; git commit -m "Right" > /dev/null
 
 echo "Merge with conflict:"
 git merge left 2>/dev/null || echo "(conflict — as expected)"

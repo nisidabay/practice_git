@@ -15,13 +15,13 @@ git commit -m "Base" > /dev/null
 # 1. Both branches modify the SAME line
 # ============================================================
 git switch -c branch 2>/dev/null
-echo "Line 1 — from branch" > conflict.txt
+sed -i 's/Line 1/Line 1 — from branch/' conflict.txt
 echo "Line 2" >> conflict.txt
 git add conflict.txt
 git commit -m "Branch changes" > /dev/null
 
 git switch main 2>/dev/null
-echo "Line 1 — from main" > conflict.txt
+sed -i 's/Line 1/Line 1 — from main/' conflict.txt
 echo "Line 2" >> conflict.txt
 git add conflict.txt
 git commit -m "Main changes" > /dev/null

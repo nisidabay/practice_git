@@ -10,11 +10,11 @@ echo "Version 1" > file.txt
 git add file.txt
 git commit -m "V1" > /dev/null
 
-echo "Version 2 — changed" > file.txt
+sed -i 's/Version 1/Version 2 — changed/' file.txt
 git add file.txt
 git commit -m "V2" > /dev/null
 
-echo "Version 3 — current" > file.txt
+sed -i 's/Version 2 — changed/Version 3 — current/' file.txt
 git add file.txt
 git commit -m "V3" > /dev/null
 

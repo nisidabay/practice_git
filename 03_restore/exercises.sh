@@ -39,10 +39,10 @@ echo "---"
 echo "A" > time.txt
 git add time.txt
 git commit -m "A" > /dev/null
-echo "B" > time.txt
+sed -i 's/A/B/' time.txt
 git add time.txt
 git commit -m "B" > /dev/null
-echo "C" > time.txt
+sed -i 's/B/C/' time.txt
 git add time.txt
 git commit -m "C" > /dev/null
 

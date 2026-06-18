@@ -19,7 +19,7 @@ git commit -m "Base" > /dev/null
 # 2. Create a branch that edits Line 1
 # ============================================================
 git checkout -b side 2>/dev/null
-echo "Line 1 — from side branch" > conflict.txt
+sed -i 's/Line 1/Line 1 — from side branch/' conflict.txt
 echo "Line 2" >> conflict.txt
 git add conflict.txt
 git commit -m "Side change to line 1" > /dev/null
@@ -29,7 +29,7 @@ SIDE_HASH=$(git rev-parse HEAD)
 # 3. On main, also edit Line 1 — creating a conflict
 # ============================================================
 git checkout main 2>/dev/null
-echo "Line 1 — from main branch" > conflict.txt
+sed -i 's/Line 1/Line 1 — from main branch/' conflict.txt
 echo "Line 2" >> conflict.txt
 git add conflict.txt
 git commit -m "Main change to line 1" > /dev/null
