@@ -27,7 +27,13 @@ git log --oneline
 echo ""
 
 # Get the first and last commit hashes
+# Vanilla git:
+FIRST=$(git rev-list --reverse HEAD | head -1)
+# Pipe con awk:
 FIRST=$(git log --oneline --reverse --max-count=1 | awk '{print $1}')
+# Vanilla git:
+LAST=$(git rev-parse HEAD)
+# Pipe con awk:
 LAST=$(git log --oneline --max-count=1 | awk '{print $1}')
 
 echo "=== git diff $FIRST..$LAST (C1 vs C4): ==="

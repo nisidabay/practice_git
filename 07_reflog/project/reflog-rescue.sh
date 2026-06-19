@@ -19,6 +19,9 @@ case "${1:-}" in
         NAME="${2:-recovered}"
         echo "=== Recovering last deleted branch as '$NAME' ==="
         # Find the last checkout: moving from <branch> to main
+        # Vanilla git:
+        LOST=$(git rev-list -g --max-count=1 --grep-reflog="checkout: moving" HEAD)
+        # Pipe con grep+awk:
         LOST=$(git reflog | grep -m1 "checkout: moving" | awk '{print $1}')
         if [ -n "$LOST" ]; then
             git checkout -b "$NAME" "$LOST"

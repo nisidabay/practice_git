@@ -28,7 +28,10 @@ echo ""
 # ============================================================
 # 2. Revert a merge commit — need -m flag
 # ============================================================
-MERGE=$(git log --oneline | grep 'Merge' | awk 'NR==1{print $1}')
+  # Vanilla git:
+  MERGE=$(git log --format=%H --grep='Merge' --max-count=1)
+  # Pipe con grep+awk:
+  MERGE=$(git log --oneline | grep 'Merge' | awk 'NR==1{print $1}')
 
 echo "=== git revert <merge-commit> without -m FAILS: ==="
 git revert --no-edit "$MERGE" 2>&1 || true

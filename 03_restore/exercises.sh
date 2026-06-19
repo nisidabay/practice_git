@@ -46,6 +46,9 @@ sed -i 's/B/C/' time.txt
 git add time.txt
 git commit -m "C" > /dev/null
 
+# Vanilla git:
+FIRST=$(git rev-list --reverse HEAD | head -1)
+# Pipe con awk:
 FIRST=$(git log --oneline --reverse --max-count=1 | awk '{print $1}')
 echo "Current time.txt: $(cat time.txt)"
 git restore --source="$FIRST" time.txt

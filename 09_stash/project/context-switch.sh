@@ -17,6 +17,9 @@ case "${1:-}" in
         NAME="${2:-auto}"
         MSG="context:$NAME"
         # Find stash with this message
+        # Vanilla git:
+        IDX=$(git stash list --format="%gd: %gs" | grep "context:$NAME" | head -1 | cut -d: -f1)
+        # Pipe con grep+awk:
         IDX=$(git stash list | grep "context:$NAME" | awk 'NR==1{print $1}' | tr -d ':')
         if [ -n "$IDX" ]; then
             git stash pop "$IDX"

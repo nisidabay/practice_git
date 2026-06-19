@@ -33,6 +33,9 @@ echo ""
 # ============================================================
 # 2. git revert — undo a commit by creating a NEW commit
 # ============================================================
+# Vanilla git:
+BUGGY=$(git log --format=%H --grep='buggy' --max-count=1)
+# Pipe con grep+awk:
 BUGGY=$(git log --oneline | grep 'buggy' | awk '{print $1}')
 echo "=== Reverting $BUGGY (the buggy commit): ==="
 git revert --no-edit "$BUGGY"

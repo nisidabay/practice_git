@@ -27,7 +27,10 @@ cat file.txt
 # ============================================================
 # 2. Restore from a specific commit — git restore --source
 # ============================================================
-FIRST_COMMIT=$(git log --oneline --reverse --max-count=1 | awk '{print $1}')
+  # Vanilla git:
+  FIRST_COMMIT=$(git rev-list --reverse HEAD | head -1)
+  # Pipe con awk:
+  FIRST_COMMIT=$(git log --oneline --reverse --max-count=1 | awk '{print $1}')
 
 echo ""
 echo "=== Restoring file.txt to its V1 state (commit $FIRST_COMMIT): ==="

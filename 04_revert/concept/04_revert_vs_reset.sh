@@ -26,6 +26,9 @@ git log --oneline
 # ============================================================
 # 1. git revert — safe, even for published commits
 # ============================================================
+# Vanilla git:
+C2_HASH=$(git log --format=%H --grep='C2' --max-count=1)
+# Pipe con grep+awk:
 C2_HASH=$(git log --oneline | awk '/C2/{print $1}')
 echo ""
 echo "=== git revert $C2_HASH (C2) — creates a NEW commit: ==="

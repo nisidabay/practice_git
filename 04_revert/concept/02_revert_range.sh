@@ -31,7 +31,14 @@ echo ""
 # 1. Revert a RANGE — git revert OLDEST..NEWEST
 #    This reverts C2 and C3 (everything AFTER C1 up to C3)
 # ============================================================
+# Vanilla git:
+OLDEST=$(git log --format=%H --grep='C2' --reverse --max-count=1)
+# Pipe con grep+awk:
 OLDEST=$(git log --oneline --reverse | awk '/C2/{print $1}')
+
+# Vanilla git:
+NEWEST=$(git log --format=%H --grep='C3' --reverse --max-count=1)
+# Pipe con grep+awk:
 NEWEST=$(git log --oneline --reverse | awk '/C3/{print $1}')
 
 echo ""

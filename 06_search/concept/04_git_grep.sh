@@ -39,6 +39,9 @@ echo ""
 # ============================================================
 # 3. git grep in a specific commit (not just working tree!)
 # ============================================================
+# Vanilla git:
+FIRST=$(git rev-list --reverse HEAD | head -1)
+# Pipe con awk:
 FIRST=$(git log --oneline --reverse --max-count=1 | awk '{print $1}')
 echo "=== 'TODO' in the first commit ($FIRST): ==="
 git grep "TODO" "$FIRST" || echo "(no matches in that commit — expected for the first one)"

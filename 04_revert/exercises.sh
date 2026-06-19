@@ -21,7 +21,10 @@ echo "Before revert:"
 ls *.txt
 echo "---"
 
-BAD=$(git log --oneline | grep 'bad' | awk '{print $1}')
+  # Vanilla git:
+  BAD=$(git log --format=%H --grep='bad' --max-count=1)
+  # Pipe con grep+awk:
+  BAD=$(git log --oneline | grep 'bad' | awk '{print $1}')
 git revert --no-edit "$BAD"
 echo "After revert (bad.txt gone):"
 ls *.txt
@@ -38,8 +41,14 @@ echo "2 bad" > nums2.txt; git add nums2.txt; git commit -m "C2 bad" > /dev/null
 echo "3 bad" > nums3.txt; git add nums3.txt; git commit -m "C3 bad" > /dev/null
 echo "4" > nums4.txt; git add nums4.txt; git commit -m "C4" > /dev/null
 
-C2=$(git log --oneline --reverse | grep 'C2' | awk '{print $1}')
-C3=$(git log --oneline --reverse | grep 'C3' | awk '{print $1}')
+  # Vanilla git:
+  C2=$(git log --format=%H --grep='C2' --reverse --max-count=1)
+  # Pipe con grep+awk:
+  C2=$(git log --oneline --reverse | grep 'C2' | awk '{print $1}')
+  # Vanilla git:
+  C3=$(git log --format=%H --grep='C3' --reverse --max-count=1)
+  # Pipe con grep+awk:
+  C3=$(git log --oneline --reverse | grep 'C3' | awk '{print $1}')
 git revert --no-edit "$C2..$C3"
 echo "After reverting C2 and C3 (bad files gone):"
 ls *.txt

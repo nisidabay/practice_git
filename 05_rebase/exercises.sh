@@ -47,10 +47,12 @@ echo "A" > a.txt; git add a.txt; git commit -m "A" > /dev/null
 echo "B" > b.txt; git add b.txt; git commit -m "B" > /dev/null
 echo "C" > c.txt; git add c.txt; git commit -m "C" > /dev/null
 
-echo "Before: $(git log --oneline | grep -v base | awk '{print $2}' | tr '\n' ' ')"
+echo "Before (git --format=%s): $(git log --format=%s | grep -v base | tr '\n' ' ')"
+echo "Before (pipe+awk):   $(git log --oneline | grep -v base | awk '{print $2}' | tr '\n' ' ')"
 GIT_SEQUENCE_EDITOR="sed -i '2{h;d}; 3{G}'" GIT_EDITOR=true \
 git rebase -i HEAD~3
-echo "After:  $(git log --oneline | grep -v base | awk '{print $2}' | tr '\n' ' ')"
+echo "After  (git --format=%s): $(git log --format=%s | grep -v base | tr '\n' ' ')"
+echo "After  (pipe+awk):   $(git log --oneline | grep -v base | awk '{print $2}' | tr '\n' ' ')"
 echo "---"
 
 # === Exercise 4: fixup workflow ===
